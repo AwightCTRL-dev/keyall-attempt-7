@@ -1,0 +1,33 @@
+# global     = one shared clock. When it hits zero, EVERY player who is online at that
+#              moment gets a key, then the clock restarts. The remaining time is saved,
+#              so restarts do not reset it (the clock only runs while the server is up).
+# per-player = each player has their own playtime counter (idle players can be excluded).
+mode: global
+
+# Minutes between key drops. 240 = 4 hours.
+interval-minutes: 240
+
+# The KEY id used in Phoenix Crates commands (what you type in /crate giveKey <id> ...).
+crate-id: dlKEYALL
+
+# Command run from the console for each player who gets a key.
+# Placeholders: %player% and %crate%
+command: "crate giveKey %crate% %player% 1"
+
+# Sent to everyone when keys are given out (global mode). "" disables it.
+# Placeholder: %interval% (time until the next drop)
+broadcast-message: "&8[&bKeyAll&8] &aEveryone online just received a &bKeyAll &akey! Next one in &e%interval%&a."
+
+# Warnings before the drop, in minutes before it happens. [] disables them.
+reminders-minutes: [10, 1]
+# Placeholder: %time%
+reminder-message: "&8[&bKeyAll&8] &7KeyAll keys are given out in &e%time%&7!"
+
+# ---- per-player mode only ----
+# false = idle players do not progress. true = everyone online progresses.
+count-afk-time: false
+# A player counts as idle after this many seconds with no movement, looking around,
+# clicking, chatting, or running commands.
+afk-after-seconds: 300
+# Message sent to a player when they earn a key. "" disables it.
+reward-message: "&8[&bKeyAll&8] &aYou earned a &bKeyAll &akey for playing! Use it on the KeyAll crate."

@@ -1,0 +1,14 @@
+name: KeyAll
+version: 1.1.0
+main: com.example.keyall.KeyAllPlugin
+api-version: '1.21'
+softdepend: [PlaceholderAPI]
+description: Gives crate keys on a timer, either to everyone online at once or per player.
+commands:
+  keyall:
+    description: Check your KeyAll timer, or reload the config.
+    usage: /keyall [reload]
+permissions:
+  keyall.admin:
+    description: Allows /keyall reload
+    default: op
